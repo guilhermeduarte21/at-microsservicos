@@ -1,4 +1,6 @@
 module.exports = (app, repository) => {
+  const rabbitMQ = require("../RabbitMQ/send");
+
   app.get("/atividadesConcluidas", async (req, res, next) => {
     const atividadesConcluidas = await repository.getAllAtividadesConcluidas();
     res.json(atividadesConcluidas);
@@ -28,6 +30,8 @@ module.exports = (app, repository) => {
       dataEntrega,
     });
 
+    rabbitMQ.enviar("Hello Teste!");
+    console.log(result);
     res.status(201).json(result);
   });
 
