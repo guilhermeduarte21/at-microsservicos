@@ -17,7 +17,7 @@ module.exports = (app, repository) => {
     const id_atividade = req.body.id_atividade;
     const aluno = req.body.aluno;
     const disciplina = req.body.disciplina;
-    const nota = 0;
+    const nota = req.body.nota;
 
     const result = await repository.addAtividadeCorrigida({
       id_atividade,
