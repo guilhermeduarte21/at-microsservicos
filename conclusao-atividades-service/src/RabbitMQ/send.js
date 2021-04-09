@@ -12,7 +12,7 @@ function enviar(msg) {
         throw error1;
       }
 
-      var queue = "hello";
+      var queue = process.env.QUEUE;
 
       channel.assertQueue(queue, {
         durable: false,

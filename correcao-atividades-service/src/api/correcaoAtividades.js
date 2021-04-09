@@ -1,4 +1,8 @@
 module.exports = (app, repository) => {
+  const rabbitMQ = require("../RabbitMQ/receive");
+
+  rabbitMQ.consume();
+
   app.get("/atividadesCorrigidas", async (req, res, next) => {
     const atividadesCorrrigidas = await repository.getAllAtividadesCorrigidas();
     res.json(atividadesCorrrigidas);

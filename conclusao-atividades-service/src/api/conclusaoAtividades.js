@@ -30,8 +30,7 @@ module.exports = (app, repository) => {
       dataEntrega,
     });
 
-    rabbitMQ.enviar("Hello Teste!");
-    console.log(result);
+    rabbitMQ.enviar(JSON.stringify(result));
     res.status(201).json(result);
   });
 
